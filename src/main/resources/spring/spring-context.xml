@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<aop:aspectj-autoproxy />
+
+	<!-- 采用注释的方式配置bean -->
+	<context:annotation-config />
+
+	<!-- 配置要扫描的包 -->
+	<context:component-scan base-package="com.discovery.darchrow.service"></context:component-scan>
+
+	<import resource="classpath:spring/spring-cache.xml" />
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!-- 对于读取一个配置文件采取的方案 -->
+        <!-- <property name="location" value="classpath:cfg.properties"></property> -->
+        <!-- 对于读取两个以上配置文件采取的处理方案 -->
+        
+        <property name="locations"> 
+            <list>
+                <value>classpath:config/redis.properties</value>
+            </list>
+        </property>
+       
+    </bean>
+	
+</beans>  
+ 
