@@ -16,23 +16,32 @@
  */
 package com.discovery.darchrow.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.discovery.darchrow.mapper.UserMapper;
 import com.discovery.darchrow.model.User;
 import com.discovery.darchrow.service.api.DemoUserService;
+import com.discovery.darchrow.tools.jsonlib.JsonUtil;
 
 @Service
 public class DemoUserServiceImpl implements DemoUserService{
+    
+    private static final Logger log = LoggerFactory.getLogger(DemoUserServiceImpl.class);
 	
 	@Autowired
 	private UserMapper userMapper;
 
 	@Override
+	@Cacheable(value="common",key="'id_'+#id")
 	public User findById(int id) {
 		// TODO Auto-generated method stub
-		return userMapper.selectUserByID(id);
+	    User user = userMapper.selectUserByID(id);
+	    log.debug("DemoUserServiceImpl-user:{}", JsonUtil.format(user));
+		return user;
 	}
 
 }

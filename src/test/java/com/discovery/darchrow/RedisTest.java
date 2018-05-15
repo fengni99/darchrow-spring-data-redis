@@ -6,10 +6,16 @@
 package com.discovery.darchrow;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
+
+import com.discovery.darchrow.model.User;
+import com.discovery.darchrow.service.impl.DemoUserServiceImpl;
+import com.discovery.darchrow.tools.jsonlib.JsonUtil;
 
 /**
  * Description Of The Class<br/>
@@ -20,8 +26,13 @@ import org.springframework.data.redis.core.RedisTemplate;
  */
 public class RedisTest extends BaseTest{
     
+    private static final Logger log = LoggerFactory.getLogger(RedisTest.class);
+    
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
+    
+    @Autowired
+    private DemoUserServiceImpl demoUserServiceImpl;
     
     @Test
     public void test(){
@@ -41,6 +52,12 @@ public class RedisTest extends BaseTest{
             }
         });
 
+    }
+    
+    @Test
+    public void test2(){
+        User user = demoUserServiceImpl.findById(1);
+        log.debug("RedisTest-user:{}", JsonUtil.format(user));
     }
     
 }

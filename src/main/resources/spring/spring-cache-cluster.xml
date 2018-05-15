@@ -62,5 +62,26 @@
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
     	<property name="connectionFactory" ref="jeidsConnectionFactory" />
 	</bean>
+	
+	<!-- spring自己的缓存管理器，这里定义了缓存位置名称 ，即注解中的value -->    
+     <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">    
+         <property name="caches">    
+            <set>    
+                <!-- 这里可以配置多个redis -->  
+                <!-- <bean class="com.cn.util.RedisCache">    
+                     <property name="redisTemplate" ref="redisTemplate" />    
+                     <property name="name" value="default"/>    
+                </bean> -->    
+                <!-- <bean class="com.discovery.darchrow.service.RedisCache">    
+                     <property name="redisTemplate" ref="redisTemplate" />    
+                     <property name="name" value="common"/>    
+                     common名称要在类或方法的注解中使用  
+                </bean>  --> 
+                <bean
+					class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"
+					p:name="common" />
+            </set>    
+         </property>    
+     </bean> 
 
 </beans>
