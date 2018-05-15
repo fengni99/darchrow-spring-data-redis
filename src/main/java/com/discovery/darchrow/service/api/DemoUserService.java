@@ -13,20 +13,13 @@
  * SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
- *//*
-package com.discovery.darchrow;
+ */
+package com.discovery.darchrow.service.api;
 
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import com.discovery.darchrow.service.model.User;
 
-*//**
- * @author dongliang
- *
- *//*
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath*:spring/spring-context.xml"})
-public class BaseTest{
+public interface DemoUserService {
 
+	public User findById(int id);
+	
 }
-*/
