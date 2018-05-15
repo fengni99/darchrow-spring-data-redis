@@ -19,9 +19,9 @@ package com.discovery.darchrow.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.discovery.darchrow.mapper.UserMapper;
+import com.discovery.darchrow.model.User;
 import com.discovery.darchrow.service.api.DemoUserService;
-import com.discovery.darchrow.service.mapper.UserMapper;
-import com.discovery.darchrow.service.model.User;
 
 @Service
 public class DemoUserServiceImpl implements DemoUserService{

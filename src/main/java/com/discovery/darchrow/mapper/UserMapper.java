@@ -1,8 +1,8 @@
-package com.discovery.darchrow.service.mapper;
+package com.discovery.darchrow.mapper;
 
 import java.util.List;
 
-import com.discovery.darchrow.service.model.User;
+import com.discovery.darchrow.model.User;
 
 public interface UserMapper {
 	

@@ -1,4 +1,4 @@
-package com.discovery.darchrow.service.model;
+package com.discovery.darchrow.model;
 
 import java.io.Serializable;
 

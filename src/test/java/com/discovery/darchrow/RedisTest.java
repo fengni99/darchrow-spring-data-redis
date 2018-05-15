@@ -2,7 +2,7 @@
  * Creation Date:2018年4月17日-下午8:44:57
  * 
  * Copyright 2008-2018 © 同程网 Inc. All Rights Reserved
- *//*
+ */
 package com.discovery.darchrow;
 
 import org.junit.Test;
@@ -11,13 +11,13 @@ import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 
-*//**
+/**
  * Description Of The Class<br/>
  * 
  * @author 	mdl47196
  * @version 1.0.0, 2018年4月17日-下午8:44:57
  * @since 2018年4月17日-下午8:44:57
- *//*
+ */
 public class RedisTest extends BaseTest{
     
     @Autowired
@@ -45,4 +45,3 @@ public class RedisTest extends BaseTest{
     
 }
 
-*/

@@ -10,7 +10,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.discovery.darchrow.service.mapper" />
+		<property name="basePackage" value="com.discovery.darchrow.mapper" />
 	</bean>
 
 
@@ -48,7 +48,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath:sqlmap/*.xml" />
 		<property name="typeAliasesPackage" value=
-			"com.discovery.darchrow.mybatis.model" />
+			"com.discovery.darchrow.model" />
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
 	</bean>
 

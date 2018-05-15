@@ -16,7 +16,7 @@
  */
 package com.discovery.darchrow.service.api;
 
-import com.discovery.darchrow.service.model.User;
+import com.discovery.darchrow.model.User;
 
 public interface DemoUserService {
 
