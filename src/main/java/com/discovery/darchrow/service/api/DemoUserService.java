@@ -22,4 +22,10 @@ public interface DemoUserService {
 
 	public User findById(int id);
 	
+	public void insertUser(User user);
+	
+	public User findByName(String name);
+	
+	public User findByConditionalId(int id);
+	
 }

@@ -14,11 +14,34 @@
         select id as id, user_name as userName, password as password from db_user where id = #{id}
     </select>
     
+    <select id="selectUserByName" parameterType="string" resultType="User">
+        select id as id, user_name as userName, password as password from db_user where user_name = #{name}
+    </select>
+    
     <select id="selectUsers" parameterType="string" resultMap="resultListUser">
         select 
         	id as id, user_name as userName, password as password 
         from db_user 
         where user_name like #{userName}
     </select>
+    
+    <insert id="insertUser">
+    	INSERT INTO db_user (user_name, password)
+		VALUES
+			(
+				#{userName}, 
+				#{password}
+			)
+    </insert>
+    
+    <delete id="deleteByPrimaryKey">
+    	DELETE FROM DB_USER
+    	WHERE id =#{id}
+    </delete>
+    
+    <delete id="deleteByName">
+    	DELETE FROM DB_USER
+    	WHERE user_name = #{name}
+    </delete>
     
 </mapper>
